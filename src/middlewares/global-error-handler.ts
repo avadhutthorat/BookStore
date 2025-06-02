@@ -9,7 +9,6 @@ export const globalErrorHandler = (
   next: NextFunction
 ): any => {
   const statusCode = err.statusCode || 500
-  console.log(req, next)
   return res.status(statusCode).json({
     message: err.message,
     errorStack: config.env === 'development' ? err.stack : '',
