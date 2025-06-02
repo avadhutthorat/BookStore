@@ -1,21 +1,21 @@
-import express from 'express'
-import cors from 'cors'
-import { globalErrorHandler } from './middlewares/global-error-handler'
-import versionRouter from './versions/versionRouter'
-import config from './config/config'
+import express from 'express';
+import cors from 'cors';
+import { globalErrorHandler } from './middlewares/global-error-handler';
+import versionRouter from './versions/versionRouter';
+import config from './config/config';
 
-const app = express()
+const app = express();
 
 app.use(
   cors({
     origin: config.frontend_domains,
   })
-)
-app.use(express.json())
+);
+app.use(express.json());
 
-// V1 version
-app.use('/api/v1', versionRouter)
+// V1 versions
+app.use('/api/v1', versionRouter);
 
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
-export default app
+export default app;
